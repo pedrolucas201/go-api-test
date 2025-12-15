@@ -27,7 +27,9 @@ func TestMessageHandler(t *testing.T) {
 		Text: "Teste unitário",
 	}
 
-	jsonBody, _ := json.Marshal(body)
+	jsonBody, err := json.Marshal(body); 
+	
+	if err != nil { t.Fatal(err) }
 
 	req := httptest.NewRequest(
 		http.MethodPost,
