@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"strings"
 	"time"
 )
 
@@ -44,6 +45,10 @@ func messageHandler(w http.ResponseWriter, r *http.Request) {
 	var msg Message
 	if err := json.NewDecoder(r.Body).Decode(&msg); err != nil {
 		http.Error(w, "JSON inválido", http.StatusBadRequest)
+		return
+	}
+	if strings.TrimSpace(msg.Text) == "" {
+		http.Error(w, "Campo 'text' não pode ser vazio", http.StatusBadRequest)
 		return
 	}
 
