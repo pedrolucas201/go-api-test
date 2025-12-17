@@ -15,8 +15,8 @@ func main() {
 	http.HandleFunc("/health", loggingMiddleware(healthHandler))
 	http.HandleFunc("/message", loggingMiddleware(messageHandler))
 
-	log.Println("API rodando na porta 8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Println("API rodando na porta 3000")
+	log.Fatal(http.ListenAndServe(":3000", nil))
 }
 
 // GET /health

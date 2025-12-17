@@ -24,8 +24,8 @@ A API inicia na porta 8080.
 
 ### Exemplos
 ```bash
-curl -s http://localhost:8080/health
-curl -s -X POST http://localhost:8080/message \
+curl -s http://localhost:3000/health
+curl -s -X POST http://localhost:3000/message \
   -H 'Content-Type: application/json' \
   -d '{"text":"Olá"}'
 ```
